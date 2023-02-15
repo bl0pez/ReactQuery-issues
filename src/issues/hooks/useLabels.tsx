@@ -16,7 +16,16 @@ export const useLabels = () => {
         getLabels,
         {
             //La data se mantiene fresca por 1 hora
-            staleTime: 1000 * 60 * 60,
+            // staleTime: 1000 * 60 * 60,
+            // Pormientra se hace la petición, muestra esta data
+            placeholderData: [{
+                id: 725156255,
+                node_id: "MDU6TGFiZWw3MjUxNTYyNTU=",
+                url: "https://api.github.com/repos/facebook/react/labels/good%20first%20issue%20(taken)",
+                name: "good first issue (taken)",
+                color: "b60205",
+                default: false,
+            }],
         }
     );
 
