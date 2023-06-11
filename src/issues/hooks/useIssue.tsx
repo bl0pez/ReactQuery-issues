@@ -23,5 +23,6 @@ export const useIssue = ( issuesNumber : number) => {
     );
 
   return {
+    issueQuery,
   };
 }
