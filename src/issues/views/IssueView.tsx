@@ -14,7 +14,7 @@ export const IssueView = () => {
 
   const { id = '0' } = params;
 
-  const { issueQuery } = useIssue(+id);
+  const { issueQuery, commentsQuery } = useIssue(+id);
 
   //Si está cargando, mostramos el icono de carga
   if(issueQuery.isLoading) return (<LoadingIcon />)
@@ -30,6 +30,20 @@ export const IssueView = () => {
 
       {/* Primer comentario */}
       <IssueComment issue={ issueQuery.data } />
+
+      {/* Se mostrara cargando si commentsQuery.isLoading es true */}
+      {
+        commentsQuery.isLoading && <LoadingIcon />
+      }
+
+      {/* Comentarios de otros */}
+      {
+        commentsQuery.data?.map( issue => (
+          <IssueComment key={issue.id} issue={issue} />
+        ))
+      }
+
+
     </div>
   )
 }
